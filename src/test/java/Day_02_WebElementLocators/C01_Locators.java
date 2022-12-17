@@ -19,7 +19,7 @@ public class C01_Locators {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // 10 saniye boyunce denemeye devam eder..
 
 
@@ -30,7 +30,7 @@ public class C01_Locators {
 
     @After
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
     }
 
     @Test
@@ -67,29 +67,77 @@ public class C01_Locators {
     }
 
     @Test
-    public void linkTextLocator (){
-        WebElement forgetPass= driver.findElement(By.linkText("Şifrenizi mi unuttunuz?"));
+    public void linkTextLocator() {
+        WebElement forgetPass = driver.findElement(By.linkText("Şifrenizi mi unuttunuz?"));
         forgetPass.click();
     }
 
     @Test
-    public void partiallinkTextLocator (){
-        WebElement forgetPass= driver.findElement(By.partialLinkText("unuttun"));
+    public void partiallinkTextLocator() {
+        WebElement forgetPass = driver.findElement(By.partialLinkText("unuttun"));
         forgetPass.click();
     }
 
     @Test
-    public void absoluteXPath(){
+    public void absoluteXPath() {
         WebElement email = driver.findElement(By.xpath("/html/body/main/section[1]/div/div/form/div[2]/div[1]/input"));
-email.sendKeys("Faruk bu konuyu tamamladı");
+        email.sendKeys("Faruk bu konuyu tamamladı");
     }
 
 
     @Test
-    public void relativeXPath(){
+    public void relativeXPath() {
         WebElement email = driver.findElement(By.xpath("//input[@name=\"session_key\"]"));
         email.sendKeys("Faruk bu konuyu tamamladı");
     }
+
+    ////input[@class='input__input'][@name='session_key']
+
+    @Test
+    public void multipleAttributeXPath() {
+        WebElement email = driver.findElement(By.xpath("//input[@class='input__input'][@name='session_key']"));
+        email.sendKeys("Faruk  multipleAttributeXPath tamamladı");
+    }
+
+    @Test
+    public void andOrXPath() {
+        WebElement email = driver.findElement(By.xpath(" //input[@class='input__input' and @name='session_key']"));
+        email.sendKeys("Faruk  andOr tamamladı");
+    }
+
+    //input[@class='input__input' or @name='session_key']
+    @Test
+    public void OrXPath() {
+        WebElement email = driver.findElement(By.xpath("//input[@class='input__input' or @name='session_key']"));
+        email.sendKeys("Faruk  aOr tamamladı");
+    }
+
+    @Test
+    public void containsXPath() {
+        //input[contains(@id,'key')]
+        WebElement email = driver.findElement(By.xpath(" //input[contains(@id,'key')]"));
+        email.sendKeys("Faruk  tamamladı");
+    }
+
+    //button[text()=' Oturum açın ']
+    //button[contains(text(),'Oturum açın')]
+    @Test
+    public void containsTextXPath() {
+        //input[contains(@id,'key')]
+        WebElement pass = driver.findElement(By.xpath("//button[contains(text(),'Oturum açın')]"));
+        pass.click();
+    }
+/*
+    @Test
+    public void textXPath() {
+        //input[contains(@id,'key')]
+        WebElement pass = driver.findElement(By.xpath("//button[text()='Oturum açın']"));
+        pass.click();
+    }
+
+ */
+
+
 
 
 
