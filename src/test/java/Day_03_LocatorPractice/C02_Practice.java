@@ -52,6 +52,22 @@ public class C02_Practice {
 
         WebElement result=driver.findElement(By.id("result-stats"));
         System.out.println(result.getText());
+
+
+        WebElement search2=driver.findElement(By.name("q"));
+        search2.clear();
+        search2.sendKeys("Premonition"+ Keys.ENTER);
+
+        WebElement result2=driver.findElement(By.id("result-stats"));
+        System.out.println(result2.getText());
+
+        WebElement search3=driver.findElement(By.name("q"));
+        search3.clear();
+        search3.sendKeys("The Curious Case of Benjamin Button"+ Keys.ENTER);
+
+        WebElement result3=driver.findElement(By.id("result-stats"));
+        System.out.println(result3.getText());
+
     }
 
 
