@@ -23,6 +23,6 @@ public abstract class BaseTest {//abstract olmasa da olur.. yeni method yazılma
 
     @After
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 }
