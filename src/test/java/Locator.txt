@@ -1,0 +1,34 @@
+WebElementsCommands;
+sendKeys() --> parametre olarak yazılan metni web elemente gönderir
+isDisplayed() --> web elementi görünüyor is true yoksa false verir
+isSelected() --> web elementi seçiliyor ise true yoksa false döndürür.(check box gibi)
+isEnabled() --> web elementi eişilebilir ise true yoksa false döndürür
+submit() --> web element ile işlem yaparken enter tuşuna basma görevi yapar
+click() --> tık aktivesi görevini yapar
+getLocation() --> elementin locationunu x y olarak verir
+clear() --> input alanlarının silinmesi görevini yapar
+getText() --> Belirli bir Web Element içindeki metni alır.Parametre gerektirmez ve sonuç olarak birString değeri döndürür.
+              Bu yöntem genellikle web sitesi ziyaretçilerine
+              gösterilen etiketleri, mesajları, hataları ve
+              diğer öğeleri (metin içeren) doğrulamak için
+              kullanılır
+getAttribute() --> Belirtilen bir Web Element’in attribute değerini alır. Parametre olarak String kullanır ve sonucu olarak
+                    bir String değeri döndürür.
+getSize() --> elementin genişliğini ve yüksekliğin alır.parametre gerektirmez dimension döndürür
+XPath methodları;
+//* veya tag [contains(@attribute,'içeren kelime']
+//* veya tag [starts-with(@attribute,'başlayan kelime')]
+//* veya tag [contains(text(),'textin bir parçası')]
+//* veya tag [text()='textin tamamı']
+//* veya tag [.='textin tamamı’]
+cssSelector -> .attributevalue= class valularına erişmek için kullanılan bir tagdır. '.'value ile class taglarına erişiriz
+***NOT: //*[contains(text(),'textin bir parçası')] xpathinde contains içine text() veya sadece '.' yazılabilirdi.
+iki durum arasındaki temel fark text()methodu sadece bağlı bulunduğu tagin contentine bakar yani child taglerin contentine bakmaz
+fakat . methodu bağlı bulunduğu tag ile child taglerinde contetnini kontrol eder
+cssSelector methodları;
+tagName[attribute name=‘value’] ====>>>>> mostly used css
+"tagName#id value" or just css= css="#id value" => # means id
+"tagName.class value" or just css= css=".class value"
+***xpath veya cssSelector kullanırken 1'den fazla çıkan sonuçlar için kod sonuna index koyarak istediğimiz elementi seçebiliriz
+   Bunun için kodumuzu () parantez içine alıp sonuna [] ile index yazıyoruz.index java da olduğu gibi 0'dan değil 1'den başlar
+   (//input[@class='value'])[1] gibi

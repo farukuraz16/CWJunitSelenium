@@ -18,6 +18,12 @@ public class C02_Dropdown {
     WebDriver driver;
 
     @Test
+    public void test (){
+        driver.get("https://demoqa.com/select-menu");
+        Select select = new Select(driver.findElement(By.xpath("(//div[@class=' css-1wy0on6'])[1]")));
+        select.selectByIndex(2);
+    }
+    @Test
     public void getAllSelectedOptions() {
         driver.get("https://output.jsbin.com/osebed/2");
         Select select = new Select(driver.findElement(By.id("fruits")));
